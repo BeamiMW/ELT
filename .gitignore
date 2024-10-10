@@ -1,0 +1,6 @@
+logs/*
+!logs/.gitkeep
+gcloud_key.json
+plugins/
+data/*.png
+notebooks/
