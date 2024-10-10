@@ -68,3 +68,8 @@ docker-compose up --build
 1. Once the data has been loaded and transformed in BigQuery, it can be visualized using Looker Studio.
 2. The data can be exported from BigQuery and linked to Looker Studio to create dashboard for visualization.
 
+## Dashboard
+
+You can view the final data visualization in the Looker Studio dashboard here:
+
+[View Dashboard](https://lookerstudio.google.com/reporting/b458f6c0-c77b-45f8-ae3d-dde9462570b7)
