@@ -4,3 +4,4 @@ gcloud_key.json
 plugins/
 data/*.png
 notebooks/
+dags/__pycache__/
