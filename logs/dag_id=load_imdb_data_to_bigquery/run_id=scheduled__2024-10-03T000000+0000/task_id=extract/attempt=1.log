@@ -1,0 +1,270 @@
+[2024-10-04T07:12:00.528+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T07:12:00.549+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T07:12:00.550+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T07:12:00.589+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T07:12:00.598+0000] {standard_task_runner.py:60} INFO - Started process 243 to run task
+[2024-10-04T07:12:00.606+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmp32kb55s_']
+[2024-10-04T07:12:00.611+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T07:12:00.648+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T07:12:00.732+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host 6771324aeb6e
+[2024-10-04T07:12:00.927+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T07:12:00.964+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T07:12:01.005+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T071200, end_date=20241004T071201
+[2024-10-04T07:12:01.045+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 243)
+[2024-10-04T07:12:01.061+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T07:12:01.112+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-04T09:35:20.834+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:35:20.850+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:35:20.850+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T09:35:20.883+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T09:35:20.888+0000] {standard_task_runner.py:60} INFO - Started process 204 to run task
+[2024-10-04T09:35:20.895+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmpmeyfsh0s']
+[2024-10-04T09:35:20.899+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T09:35:20.926+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T09:35:20.976+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host dc49826906ae
+[2024-10-04T09:35:21.092+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T09:35:21.095+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T09:35:21.113+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T093520, end_date=20241004T093521
+[2024-10-04T09:35:21.129+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 204)
+[2024-10-04T09:35:21.150+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T09:35:21.180+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-04T09:48:18.125+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:48:18.147+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:48:18.149+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T09:48:18.195+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T09:48:18.205+0000] {standard_task_runner.py:60} INFO - Started process 191 to run task
+[2024-10-04T09:48:18.212+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmpszr97x5n']
+[2024-10-04T09:48:18.216+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T09:48:18.241+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T09:48:18.287+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host 54d578d6ce91
+[2024-10-04T09:48:18.406+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T09:48:18.409+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T09:48:18.425+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T094818, end_date=20241004T094818
+[2024-10-04T09:48:18.443+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 191)
+[2024-10-04T09:48:18.467+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T09:48:18.492+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-04T09:54:45.876+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:54:45.906+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T09:54:45.907+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T09:54:45.939+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T09:54:45.947+0000] {standard_task_runner.py:60} INFO - Started process 178 to run task
+[2024-10-04T09:54:45.954+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmptev4n8sm']
+[2024-10-04T09:54:45.958+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T09:54:45.991+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T09:54:46.060+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host fec70fafb4e7
+[2024-10-04T09:54:46.249+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T09:54:46.256+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T09:54:46.283+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T095445, end_date=20241004T095446
+[2024-10-04T09:54:46.309+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 178)
+[2024-10-04T09:54:46.331+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T09:54:46.379+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-04T10:18:55.042+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T10:18:55.052+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T10:18:55.052+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T10:18:55.080+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T10:18:55.086+0000] {standard_task_runner.py:60} INFO - Started process 178 to run task
+[2024-10-04T10:18:55.090+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmpneo5gx_m']
+[2024-10-04T10:18:55.092+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T10:18:55.110+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T10:18:55.146+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host fd79d4f8eb10
+[2024-10-04T10:18:55.241+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T10:18:55.243+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T10:18:55.257+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T101855, end_date=20241004T101855
+[2024-10-04T10:18:55.271+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 178)
+[2024-10-04T10:18:55.304+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T10:18:55.331+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-10-04T10:27:31.056+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T10:27:31.094+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [queued]>
+[2024-10-04T10:27:31.096+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T10:27:31.188+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): extract> on 2024-10-03 00:00:00+00:00
+[2024-10-04T10:27:31.216+0000] {standard_task_runner.py:60} INFO - Started process 179 to run task
+[2024-10-04T10:27:31.232+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'load_imdb_data_to_bigquery', 'extract', 'scheduled__2024-10-03T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmp2r_ojh96']
+[2024-10-04T10:27:31.250+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract
+[2024-10-04T10:27:31.337+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T10:27:31.525+0000] {task_command.py:423} INFO - Running <TaskInstance: load_imdb_data_to_bigquery.extract scheduled__2024-10-03T00:00:00+00:00 [running]> on host 99c1047a1b6c
+[2024-10-04T10:27:31.996+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='load_imdb_data_to_bigquery' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-10-03T00:00:00+00:00'
+[2024-10-04T10:27:32.003+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scrape_dag.py", line 61, in load_to_bigquery
+    client = bigquery.Client()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/bigquery/client.py", line 243, in __init__
+    super(Client, self).__init__(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 320, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 268, in __init__
+    project = self._determine_default(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/client/__init__.py", line 287, in _determine_default
+    return _determine_default_project(project)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_helpers/__init__.py", line 152, in _determine_default_project
+    _, project = google.auth.default()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 659, in default
+    credentials, project_id = checker()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 652, in <lambda>
+    lambda: _get_explicit_environ_credentials(quota_project_id=quota_project_id),
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 271, in _get_explicit_environ_credentials
+    credentials, project_id = load_credentials_from_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/_default.py", line 114, in load_credentials_from_file
+    raise exceptions.DefaultCredentialsError(
+google.auth.exceptions.DefaultCredentialsError: File /gcloud_key.json was not found.
+[2024-10-04T10:27:32.052+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=load_imdb_data_to_bigquery, task_id=extract, execution_date=20241003T000000, start_date=20241004T102731, end_date=20241004T102732
+[2024-10-04T10:27:32.100+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 2 for task extract (File /gcloud_key.json was not found.; 179)
+[2024-10-04T10:27:32.133+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T10:27:32.211+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

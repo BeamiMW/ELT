@@ -1,0 +1,426 @@
+[2024-10-10T14:22:26.623+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-10-10T14:22:26.656+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: EL.extract manual__2024-10-10T14:22:21.424046+00:00 [queued]>
+[2024-10-10T14:22:26.678+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: EL.extract manual__2024-10-10T14:22:21.424046+00:00 [queued]>
+[2024-10-10T14:22:26.682+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-10-10T14:22:26.717+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): extract> on 2024-10-10 14:22:21.424046+00:00
+[2024-10-10T14:22:26.734+0000] {standard_task_runner.py:72} INFO - Started process 50 to run task
+[2024-10-10T14:22:26.742+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'EL', 'extract', 'manual__2024-10-10T14:22:21.424046+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmpnq2xicte']
+[2024-10-10T14:22:26.750+0000] {standard_task_runner.py:105} INFO - Job 31: Subtask extract
+[2024-10-10T14:22:26.792+0000] {warnings.py:109} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+
+[2024-10-10T14:22:26.889+0000] {task_command.py:467} INFO - Running <TaskInstance: EL.extract manual__2024-10-10T14:22:21.424046+00:00 [running]> on host 19820b265526
+[2024-10-10T14:22:27.120+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='EL' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-10T14:22:21.424046+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-10T14:22:21.424046+00:00'
+[2024-10-10T14:22:27.124+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-10-10T14:22:27.192+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-10-10T14:22:27.196+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'xvfb-run --server-args="-screen 0 1920x1080x24" python3 /opt/airflow/scripts/scrape.py']
+[2024-10-10T14:22:27.219+0000] {subprocess.py:86} INFO - Output:
+[2024-10-10T14:22:31.865+0000] {subprocess.py:93} INFO - INFO:root:Opening IMDb page...
+[2024-10-10T14:22:37.487+0000] {subprocess.py:93} INFO - INFO:root:Page loaded, waiting for elements...
+[2024-10-10T14:22:43.200+0000] {subprocess.py:93} INFO - INFO:root:Elements found, starting to scrape...
+[2024-10-10T14:22:44.089+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:44.092+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:44.094+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:44.096+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:44.099+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:44.102+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:44.105+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:44.107+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:44.110+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:44.113+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:44.116+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:44.121+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:44.123+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:44.125+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:44.128+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:44.130+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:44.133+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:44.137+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:44.139+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:44.142+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:44.144+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:44.147+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:44.149+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:44.154+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:44.156+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:44.624+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:44.629+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:44.634+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:44.638+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:44.642+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:44.645+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:44.649+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:44.653+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:44.657+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:44.664+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:44.667+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:44.672+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:44.676+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:44.679+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:44.683+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:44.688+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:44.695+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:44.698+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:44.703+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:44.707+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:44.711+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:44.715+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:44.722+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:44.726+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:44.731+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:46.969+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:46.971+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:46.975+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:46.979+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:46.981+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:46.985+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:46.989+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:46.992+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:46.995+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:46.997+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:47.000+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:47.004+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:47.007+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:47.009+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:47.012+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:47.015+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:47.018+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:47.022+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:47.024+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:47.027+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:47.030+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:47.034+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:47.038+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:47.041+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:47.043+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:47.529+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:47.535+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:47.541+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:47.544+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:47.546+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:47.549+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:47.555+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:47.560+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:47.564+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:47.569+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:47.573+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:47.578+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:47.581+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:47.585+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:47.589+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:47.594+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:47.598+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:47.603+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:47.607+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:47.611+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:47.614+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:47.617+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:47.621+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:47.625+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:47.629+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:48.096+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:48.098+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:48.104+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:48.107+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:48.110+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:48.113+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:48.117+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:48.121+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:48.125+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:48.128+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:48.131+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:48.135+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:48.138+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:48.143+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:48.146+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:48.152+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:48.155+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:48.158+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:48.163+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:48.169+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:48.172+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:48.175+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:48.179+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:48.182+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:48.188+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:48.628+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:48.631+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:48.638+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:48.643+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:48.649+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:48.657+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:48.661+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:48.665+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:48.670+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:48.676+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:48.681+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:48.685+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:48.689+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:48.698+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:48.705+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:48.709+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:48.712+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:48.716+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:48.723+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:48.726+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:48.730+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:48.738+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:48.740+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:48.743+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:48.746+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:49.506+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:49.509+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:49.517+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:49.525+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:49.531+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:49.540+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:49.546+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:49.555+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:49.560+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:49.567+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:49.574+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:49.583+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:49.591+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:49.596+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:49.602+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:49.608+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:49.622+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:49.643+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:49.659+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:49.679+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:49.688+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:49.705+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:49.709+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:49.718+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:49.723+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:50.320+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:50.323+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:50.326+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:50.330+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:50.334+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:50.338+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:50.341+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:50.345+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:50.349+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:50.354+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:50.358+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:50.361+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:50.365+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:50.370+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:50.374+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:50.379+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:50.383+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:50.390+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:50.394+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:50.398+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:50.404+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:50.408+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:50.411+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:50.421+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:50.425+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:51.021+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:51.027+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:51.032+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:51.036+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:51.040+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:51.043+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:51.047+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:51.053+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:51.057+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:51.060+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:51.064+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:51.069+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:51.073+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:51.076+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:51.078+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:51.081+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:51.087+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:51.090+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:51.093+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:51.099+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:51.105+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:51.110+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:51.114+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:51.120+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:51.122+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:51.561+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:51.564+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:51.570+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:51.576+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:51.579+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:51.582+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:51.587+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:51.592+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:51.597+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:51.601+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:51.606+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:51.610+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:51.614+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:51.618+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:51.622+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:51.628+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:51.639+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:51.645+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:51.649+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:51.657+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:51.661+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:51.672+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:51.676+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:51.679+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:51.685+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:52.318+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:52.322+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:52.326+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:52.330+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:52.336+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:52.340+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:52.345+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:52.351+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:52.355+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:52.359+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:52.364+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:52.369+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:52.372+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:52.375+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:52.378+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:52.381+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:52.385+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:52.389+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:52.392+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:52.395+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:52.398+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:52.402+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:52.405+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:52.408+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:52.411+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:52.955+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:52.960+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:52.967+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:52.976+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:52.980+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:52.985+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:52.992+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:53.001+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:53.007+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:53.012+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:53.020+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:53.027+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:53.036+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:53.042+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:53.047+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:53.052+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:53.064+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:53.072+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:53.079+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:53.087+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:53.094+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:53.100+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:53.107+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:53.115+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:53.122+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:53.954+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:53.960+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:53.971+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:53.977+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:53.985+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:53.991+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:53.997+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:54.008+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:54.015+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:54.022+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:54.030+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:54.037+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:54.044+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:54.050+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:54.055+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:54.063+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:54.067+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:54.073+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:54.078+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:54.085+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:54.094+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:54.098+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:54.105+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:54.110+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:54.118+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:54.872+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:54.876+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:54.879+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:54.885+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:54.891+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:54.901+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:54.911+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:54.922+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:54.944+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:54.958+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:54.965+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:54.984+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:54.994+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:55.006+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:55.010+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:55.016+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:55.021+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:55.028+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:55.038+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:55.044+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:55.050+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:55.054+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:55.064+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:55.068+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:55.073+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:55.537+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:55.540+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:55.545+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:55.554+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:55.558+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:55.561+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:55.566+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:55.572+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:55.578+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:55.582+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:55.588+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:55.592+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:55.601+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:55.605+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:55.611+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:55.616+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:55.622+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:55.635+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:55.646+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:55.651+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:55.658+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:55.662+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:55.666+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:55.676+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:55.690+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:56.262+0000] {subprocess.py:93} INFO - WARNING:root:Metascore not found: Message: no such element: Unable to locate element: {"method":"css selector","selector":"span.sc-b0901df4-0.bXIOoL.metacritic-score-box"}
+[2024-10-10T14:22:56.271+0000] {subprocess.py:93} INFO -   (Session info: chrome=129.0.6668.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+[2024-10-10T14:22:56.275+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-10T14:22:56.278+0000] {subprocess.py:93} INFO - #0 0x5584466c302a <unknown>
+[2024-10-10T14:22:56.289+0000] {subprocess.py:93} INFO - #1 0x5584463a95e0 <unknown>
+[2024-10-10T14:22:56.295+0000] {subprocess.py:93} INFO - #2 0x5584463f8be8 <unknown>
+[2024-10-10T14:22:56.298+0000] {subprocess.py:93} INFO - #3 0x5584463f8e81 <unknown>
+[2024-10-10T14:22:56.303+0000] {subprocess.py:93} INFO - #4 0x5584463ed586 <unknown>
+[2024-10-10T14:22:56.313+0000] {subprocess.py:93} INFO - #5 0x55844641db4d <unknown>
+[2024-10-10T14:22:56.324+0000] {subprocess.py:93} INFO - #6 0x5584463ed478 <unknown>
+[2024-10-10T14:22:56.328+0000] {subprocess.py:93} INFO - #7 0x55844641dcee <unknown>
+[2024-10-10T14:22:56.333+0000] {subprocess.py:93} INFO - #8 0x55844643cd7d <unknown>
+[2024-10-10T14:22:56.338+0000] {subprocess.py:93} INFO - #9 0x55844641d8c3 <unknown>
+[2024-10-10T14:22:56.342+0000] {subprocess.py:93} INFO - #10 0x5584463eb6b3 <unknown>
+[2024-10-10T14:22:56.346+0000] {subprocess.py:93} INFO - #11 0x5584463ec68e <unknown>
+[2024-10-10T14:22:56.353+0000] {subprocess.py:93} INFO - #12 0x55844668da2b <unknown>
+[2024-10-10T14:22:56.357+0000] {subprocess.py:93} INFO - #13 0x5584466919b1 <unknown>
+[2024-10-10T14:22:56.362+0000] {subprocess.py:93} INFO - #14 0x55844667a225 <unknown>
+[2024-10-10T14:22:56.369+0000] {subprocess.py:93} INFO - #15 0x558446692532 <unknown>
+[2024-10-10T14:22:56.375+0000] {subprocess.py:93} INFO - #16 0x55844665f38f <unknown>
+[2024-10-10T14:22:56.379+0000] {subprocess.py:93} INFO - #17 0x5584466b1f28 <unknown>
+[2024-10-10T14:22:56.389+0000] {subprocess.py:93} INFO - #18 0x5584466b20f3 <unknown>
+[2024-10-10T14:22:56.393+0000] {subprocess.py:93} INFO - #19 0x5584466c1e7c <unknown>
+[2024-10-10T14:22:56.399+0000] {subprocess.py:93} INFO - #20 0x7f4b85f25144 <unknown>
+[2024-10-10T14:22:56.407+0000] {subprocess.py:93} INFO - 
+[2024-10-10T14:22:57.702+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-10-10T14:22:57.773+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-10-10T14:22:57.777+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=EL, task_id=extract, run_id=manual__2024-10-10T14:22:21.424046+00:00, execution_date=20241010T142221, start_date=20241010T142226, end_date=20241010T142257
+[2024-10-10T14:22:57.861+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-10-10T14:22:58.066+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-10-10T14:22:58.097+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

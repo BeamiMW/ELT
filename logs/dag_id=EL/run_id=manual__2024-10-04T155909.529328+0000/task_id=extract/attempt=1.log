@@ -1,0 +1,54 @@
+[2024-10-04T15:59:11.852+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: EL.extract manual__2024-10-04T15:59:09.529328+00:00 [queued]>
+[2024-10-04T15:59:11.862+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: EL.extract manual__2024-10-04T15:59:09.529328+00:00 [queued]>
+[2024-10-04T15:59:11.863+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-10-04T15:59:11.887+0000] {taskinstance.py:2214} INFO - Executing <Task(BashOperator): extract> on 2024-10-04 15:59:09.529328+00:00
+[2024-10-04T15:59:11.892+0000] {standard_task_runner.py:60} INFO - Started process 222 to run task
+[2024-10-04T15:59:11.898+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'EL', 'extract', 'manual__2024-10-04T15:59:09.529328+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/scrape_dag.py', '--cfg-path', '/tmp/tmp9_n_kxor']
+[2024-10-04T15:59:11.900+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask extract
+[2024-10-04T15:59:11.920+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.9/site-packages/airflow/settings.py:194 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2024-10-04T15:59:11.958+0000] {task_command.py:423} INFO - Running <TaskInstance: EL.extract manual__2024-10-04T15:59:09.529328+00:00 [running]> on host 45db7544ca6a
+[2024-10-04T15:59:12.049+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='bmw' AIRFLOW_CTX_DAG_ID='EL' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2024-10-04T15:59:09.529328+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-10-04T15:59:09.529328+00:00'
+[2024-10-04T15:59:12.051+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-10-04T15:59:12.053+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/airflow/scripts/scrape.py']
+[2024-10-04T15:59:12.061+0000] {subprocess.py:86} INFO - Output:
+[2024-10-04T16:00:20.722+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2024-10-04T16:00:20.724+0000] {subprocess.py:93} INFO -   File "/opt/airflow/scripts/scrape.py", line 28, in <module>
+[2024-10-04T16:00:20.727+0000] {subprocess.py:93} INFO -     WebDriverWait(driver, 60).until(
+[2024-10-04T16:00:20.728+0000] {subprocess.py:93} INFO -   File "/home/airflow/.local/lib/python3.9/site-packages/selenium/webdriver/support/wait.py", line 105, in until
+[2024-10-04T16:00:20.729+0000] {subprocess.py:93} INFO -     raise TimeoutException(message, screen, stacktrace)
+[2024-10-04T16:00:20.730+0000] {subprocess.py:93} INFO - selenium.common.exceptions.TimeoutException: Message:
+[2024-10-04T16:00:20.731+0000] {subprocess.py:93} INFO - Stacktrace:
+[2024-10-04T16:00:20.732+0000] {subprocess.py:93} INFO - #0 0x56181b3a102a <unknown>
+[2024-10-04T16:00:20.732+0000] {subprocess.py:93} INFO - #1 0x56181b0875e0 <unknown>
+[2024-10-04T16:00:20.733+0000] {subprocess.py:93} INFO - #2 0x56181b0d6be8 <unknown>
+[2024-10-04T16:00:20.734+0000] {subprocess.py:93} INFO - #3 0x56181b0d6e81 <unknown>
+[2024-10-04T16:00:20.734+0000] {subprocess.py:93} INFO - #4 0x56181b11d8c4 <unknown>
+[2024-10-04T16:00:20.735+0000] {subprocess.py:93} INFO - #5 0x56181b0fbb4d <unknown>
+[2024-10-04T16:00:20.735+0000] {subprocess.py:93} INFO - #6 0x56181b11ad7d <unknown>
+[2024-10-04T16:00:20.736+0000] {subprocess.py:93} INFO - #7 0x56181b0fb8c3 <unknown>
+[2024-10-04T16:00:20.736+0000] {subprocess.py:93} INFO - #8 0x56181b0c96b3 <unknown>
+[2024-10-04T16:00:20.737+0000] {subprocess.py:93} INFO - #9 0x56181b0ca68e <unknown>
+[2024-10-04T16:00:20.738+0000] {subprocess.py:93} INFO - #10 0x56181b36ba2b <unknown>
+[2024-10-04T16:00:20.739+0000] {subprocess.py:93} INFO - #11 0x56181b36f9b1 <unknown>
+[2024-10-04T16:00:20.739+0000] {subprocess.py:93} INFO - #12 0x56181b358225 <unknown>
+[2024-10-04T16:00:20.740+0000] {subprocess.py:93} INFO - #13 0x56181b370532 <unknown>
+[2024-10-04T16:00:20.741+0000] {subprocess.py:93} INFO - #14 0x56181b33d38f <unknown>
+[2024-10-04T16:00:20.741+0000] {subprocess.py:93} INFO - #15 0x56181b38ff28 <unknown>
+[2024-10-04T16:00:20.742+0000] {subprocess.py:93} INFO - #16 0x56181b3900f3 <unknown>
+[2024-10-04T16:00:20.742+0000] {subprocess.py:93} INFO - #17 0x56181b39fe7c <unknown>
+[2024-10-04T16:00:20.743+0000] {subprocess.py:93} INFO - #18 0x7f7105ffd144 <unknown>
+[2024-10-04T16:00:20.744+0000] {subprocess.py:93} INFO - 
+[2024-10-04T16:00:20.916+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2024-10-04T16:00:20.933+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-10-04T16:00:20.938+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=EL, task_id=extract, execution_date=20241004T155909, start_date=20241004T155911, end_date=20241004T160020
+[2024-10-04T16:00:20.969+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task extract (Bash command failed. The command returned a non-zero exit code 1.; 222)
+[2024-10-04T16:00:20.988+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-10-04T16:00:21.017+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check
