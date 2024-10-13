@@ -96,6 +96,8 @@ You can view the final data visualization in the Looker Studio dashboard here:
 ## Architecture
 ![Architecture](./architecture.png)
 
+[source](https://elest.io/open-source/airflow-worker)
+
 ## Future Improvement
 1. Using IMDb API
 2. Transformation and data cleaning in the pipeline
